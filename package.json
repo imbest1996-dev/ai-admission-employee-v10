@@ -1,0 +1,13 @@
+{
+  "name": "ai-admission-employee-v10",
+  "version": "10.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js",
+    "verify": "node v10-check.js && node pilot-test.js && node stress30.js && node multiturn45_memory.js && node adversarial30.js && node isolation50.js && node load3000_memory.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
