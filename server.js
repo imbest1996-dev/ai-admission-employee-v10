@@ -43,7 +43,7 @@ function fallback(message,setup){
  let reply,next_action='ASK_COURSE',temp='Warm';
  if(course==='Unknown') reply='Aap NEET/JEE ya kaunsa course dekh rahe hain? Course batayenge to main available institute information se exact help karunga.';
  else if(fee){reply=line?`${line}\nAgar aap chahein to counselling/demo ka preferred day bata dijiye.`:'Is course ki exact fee saved institute information mein nahi hai. Institute team se confirmation chahiye.';next_action=line?'ASK_TIMELINE':'HUMAN_ESCALATION';temp=line?'Hot':'Warm';}
- else if(demo){reply=(setup.demo||'Counselling/demo details institute se confirm karni hongi.')+' — preferred day/time batayein.';next_action=setup.demo?'BOOK_DEMO':'HUMAN_ESCALATION';temp='Hot';}
+ else if(demo){reply=`${course} ke liye ${(setup.demo||'Counselling/demo details institute se confirm karni hongi.')} — preferred day/time batayein.`;next_action=setup.demo?'BOOK_DEMO':'HUMAN_ESCALATION';temp='Hot';}
  else if(batch){reply=line?`${line}\nAgar batch timing is line mein mention nahi hai to institute confirmation chahiye.`:'Batch/timing ki exact information saved data mein nahi hai; institute confirmation chahiye.';next_action='HUMAN_ESCALATION';}
  else if(admission){reply=`${course} admission mein interest note kar liya hai. ${phone?'Aapka contact bhi capture ho gaya.':'Contact number share karna optional hai; counselling preferred day bhi bata sakte hain.'}`;next_action=phone?'OWNER_CALLBACK':'ASK_CONTACT';temp='Hot';}
  else {reply=`Aap ${course} ke baare mein pooch rahe hain. Fees, batch ya counselling mein se kis cheez ki information chahiye?`;next_action='ASK_INTENT';}
